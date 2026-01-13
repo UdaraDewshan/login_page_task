@@ -2,9 +2,8 @@ package connectionOB;
 
 import model.Customer;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class LoginDetailsController {
 
@@ -18,5 +17,17 @@ public class LoginDetailsController {
         preparedStatement.setObject(4,customer.getPassword());
         int i = preparedStatement.executeUpdate();
         return i>0;
+    }
+
+    public static ArrayList<Customer> getLoginDetails() throws SQLException, ClassNotFoundException {
+        ArrayList<Customer> emailArray=new ArrayList<>();
+        String SQL="SELECT * FROM signup_details;";
+        Connection connection=ConnectionOB.getInstance().getConnection();
+        Statement stm=connection.createStatement();
+        ResultSet rst=stm.executeQuery(SQL);
+        while (rst.next()){
+            emailArray.add(new Customer(rst.getString("email"),rst.getString("first_name"),rst.getString("last_name"),rst.getString("password")));
+        }
+        return emailArray;
     }
 }
