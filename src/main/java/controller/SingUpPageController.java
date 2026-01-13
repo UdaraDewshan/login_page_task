@@ -41,6 +41,8 @@ public class SingUpPageController {
     @FXML
     void btnRegisterAction(ActionEvent event) {
 
+
+
     }
 
 }
