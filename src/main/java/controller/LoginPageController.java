@@ -27,11 +27,6 @@ public class LoginPageController {
     private PasswordField txtPassword;
 
     @FXML
-    void btnSingInAction(ActionEvent event) {
-
-    }
-
-    @FXML
     void linkSingUpAction(ActionEvent event) throws IOException {
         Stage stage = new Stage();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/SingUpPage.fxml"))));
@@ -40,5 +35,18 @@ public class LoginPageController {
         stage.show();
         stage.setTitle("Sing Up");
     }
+
+    @FXML
+    void btnSingInAction(ActionEvent event) {
+
+        String email = txtEmail.getText().trim();
+        String password = txtPassword.getText();
+
+
+
+
+    }
+
+
 
 }
