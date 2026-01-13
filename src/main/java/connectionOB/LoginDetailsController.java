@@ -1,5 +1,6 @@
 package connectionOB;
 
+import controller.DashboardController;
 import model.Customer;
 
 import java.sql.*;
@@ -29,5 +30,21 @@ public class LoginDetailsController {
             emailArray.add(new Customer(rst.getString("email"),rst.getString("first_name"),rst.getString("last_name"),rst.getString("password")));
         }
         return emailArray;
+    }
+
+
+    public static String getFirstName(String email) throws SQLException, ClassNotFoundException {
+        Connection connection = ConnectionOB.getInstance().getConnection();
+
+        String SQL = "SELECT first_name FROM signup_details WHERE email = ?";
+        PreparedStatement pstm = connection.prepareStatement(SQL);
+        pstm.setString(1, email);
+
+        ResultSet rst = pstm.executeQuery();
+
+        if (rst.next()) {
+            return rst.getString("first_name");
+        }
+        return "User";
     }
 }
