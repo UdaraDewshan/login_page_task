@@ -14,14 +14,12 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/LoginPage.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginPageController">
 
 
-    <!-- Background -->
     <ImageView fitHeight="428.0" fitWidth="600.0">
         <image>
             <Image url="@../image/background.png" />
         </image>
     </ImageView>
 
-    <!-- Login Card -->
     <VBox alignment="CENTER" layoutX="153.0" layoutY="55.0" prefHeight="335.0" prefWidth="294.0" spacing="15" styleClass="card">
 
         <Text styleClass="title" text="Welcome Back" />
